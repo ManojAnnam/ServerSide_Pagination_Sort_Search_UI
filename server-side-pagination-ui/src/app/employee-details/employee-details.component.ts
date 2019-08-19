@@ -13,7 +13,7 @@ export class EmployeeDetailsComponent implements OnInit {
   private employeeDetails: EmployeeDetails[] = new Array();
   private skipCount = 10;
   private displayCount = 6;
-
+  displayedColumns: string[] = ['id', 'name', 'designation', 'salary'];
   constructor(private employeeDetailsService: EmployeeDetailsService) {}
 
   ngOnInit() {
