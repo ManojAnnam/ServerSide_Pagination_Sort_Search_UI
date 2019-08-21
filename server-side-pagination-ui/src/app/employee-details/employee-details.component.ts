@@ -13,7 +13,11 @@ export class EmployeeDetailsComponent implements OnInit {
   private employeeDetails: EmployeeDetails[] = new Array();
   private skipCount = 10;
   private displayCount = 6;
+  isLoading = true;
+  //isLoading: boolean;
   displayedColumns: string[] = ['id', 'name', 'designation', 'salary'];
+  // [ngClass]="{'classname' : conditionFlag}"
+
   constructor(private employeeDetailsService: EmployeeDetailsService) {}
 
   ngOnInit() {
@@ -21,6 +25,7 @@ export class EmployeeDetailsComponent implements OnInit {
   }
 
   getEmployeeDetails() {
+    this.isLoading = true;
     this.getEmployeesUrl = 'EmployeeDetails/GetAllEmployees';
     this.queryStringObject = {
       skipCount: this.skipCount,
@@ -32,6 +37,8 @@ export class EmployeeDetailsComponent implements OnInit {
       .subscribe(
         response => {
           this.employeeDetails = response;
+          debugger;
+          this.isLoading = false;
           console.log(this.employeeDetails);
         },
         error => {
