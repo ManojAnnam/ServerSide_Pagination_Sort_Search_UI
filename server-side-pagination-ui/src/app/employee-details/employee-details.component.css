@@ -1,20 +1,17 @@
-table.mat-table {
-  width: 100%;
+.spinner-border {
+  position: absolute;
+  z-index: 3000 !important;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.example-container {
-  width: 60%;
-  margin-left: 15%;
+.row {
   margin-top: 10%;
 }
 
-.mat-spinner {
-  z-index: 1000 !important;
-  position: absolute;
-  margin-top: 50%;
-  margin-left: 50%;
-}
-
-.makeBlur {
-  background-color: cadetblue;
+.setMinWidth {
+  min-height: 400px;
 }
