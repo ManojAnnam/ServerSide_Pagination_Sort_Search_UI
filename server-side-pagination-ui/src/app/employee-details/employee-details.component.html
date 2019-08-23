@@ -3,14 +3,14 @@
   <div class="col-2">
 
   </div>
-  <div class="col-8 setMinWidth">
+  <div class="col-8 mat-elevation-z8">
     <div>
       <div *ngIf="isLoading" class="spinner-border" role="status">
       </div>
 
 
 
-      <table mat-table [dataSource]="employeeDetails" class="mat-elevation-z8 w-100">
+      <table mat-table [dataSource]="employeeDetails" class=" w-100">
 
 
         <ng-container matColumnDef="id">
@@ -40,6 +40,8 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </div>
+    <mat-paginator [length]="resultsLength" [pageSizeOptions]="[10, 20 ,30]" (page)="setSkipCount($event)">
+    </mat-paginator>
   </div>
   <div class="col-2">
 

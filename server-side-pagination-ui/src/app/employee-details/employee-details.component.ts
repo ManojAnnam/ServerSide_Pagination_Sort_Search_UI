@@ -11,9 +11,9 @@ export class EmployeeDetailsComponent implements OnInit {
   private getEmployeesUrl: string;
   private queryStringObject: object;
   private employeeDetails: EmployeeDetails[] = new Array();
-  private skipCount = 10;
-  private displayCount = 6;
-
+  private skipCount = 0;
+  private displayCount = 10;
+  private resultsLength = 100;
   isLoading: boolean;
   displayedColumns: string[] = ['id', 'name', 'designation', 'salary'];
   // [ngClass]="{'classname' : conditionFlag}"
@@ -44,5 +44,12 @@ export class EmployeeDetailsComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  setSkipCount($event) {
+    console.log($event);
+    this.skipCount = $event.pageIndex * $event.pageSize;
+    this.displayCount = $event.pageSize;
+    this.getEmployeeDetails();
   }
 }
